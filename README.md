@@ -2,7 +2,12 @@
 
 Projeto independente de vídeos com motion graphics e objetos 3D, feito para ser editado com o Claude Code.
 
-Stack: Remotion 4 + `@remotion/three` (Three.js / React Three Fiber) + `@remotion/media`.
+Stack: Remotion 4 + `@remotion/three` (Three.js / React Three Fiber) + `@remotion/media` + `@remotion/transitions`.
+
+São duas composições, e as duas têm o campo **`formato`**, que aceita `9:16` (Reels, 1080×1920, o padrão) ou `16:9` (1920×1080):
+
+- **`UIStory`**: estilo "interface animada", com chat digitando, títulos serifados, linha do tempo de editor, código, métricas de post e cartão de arquivo pronto.
+- **`Apresentador3D`**: vídeo de uma pessoa com objetos 3D e textos por cima.
 
 ## Comandos
 
@@ -11,6 +16,8 @@ cd motion-graphics-3d
 npm i
 npm run dev        # Remotion Studio: preview e edição dos props pela barra lateral
 npm run lint       # eslint + tsc
+npx remotion render UIStory out/reels.mp4
+npx remotion render UIStory out/horizontal.mp4 --props='{"formato":"16:9"}'
 npx remotion render Apresentador3D out/apresentador.mp4
 npx remotion still Apresentador3D out/frame.png --frame=120   # conferir um frame
 ```
@@ -21,7 +28,30 @@ As skills oficiais do Remotion já estão instaladas (`npx remotion skills add`)
 
 Principais: `remotion-best-practices` (roteador), `remotion-create`, `remotion-markup` (animação, 3D, transições, vídeo, áudio), `remotion-captions`, `remotion-render`, `remotion-studio`.
 
-## Composição `Apresentador3D` (9:16, 1080×1920, 30 fps, 10 s)
+## Composição `UIStory`
+
+Tudo é editado pelo painel da direita do Studio:
+
+- `formato`: `9:16` ou `16:9`. O layout se adapta; na cena de métricas, por exemplo, o celular fica acima dos números no vertical e ao lado no horizontal.
+- `marca` e `corDestaque` (com seletor de cor): aparecem no chat, nos selos, no brilho do fundo e no encerramento.
+- `cenas`: lista de blocos que você pode **reordenar, duplicar ou remover**. Cada um tem `tipo`, `tema` (`escuro` ou `claro`) e `duracaoEmSegundos`. A duração total do vídeo é calculada sozinha.
+
+| `tipo` | O que mostra | Campos |
+|---|---|---|
+| `chat` | Saudação + caixa de mensagem digitando | `saudacao`, `mensagem` |
+| `titulo` | Frase serifada + palavra grande em destaque | `texto`, `destaque` |
+| `selos` | Lista de selos com ✓ entrando em cascata | `itens` |
+| `timeline` | Editor de vídeo com faixas e cursor andando | `faixas` |
+| `codigo` | Código sendo digitado com realce | `arquivo`, `linhas` |
+| `metricas` | Celular com post + contadores animados | `usuario`, `visualizacoes`, `curtidas`, `comentarios` |
+| `arquivo` | Cartão "video.mp4 · Arquivo pronto" | `titulo`, `textoNoVideo`, `nomeArquivo` |
+| `logo` | Encerramento com símbolo e nome da marca | — |
+
+Código em `src/UIStory/`: uma cena por arquivo em `cenas/` e os estilos compartilhados (fontes, paleta, animação de entrada, digitação) em `estilo.ts`. Para criar um tipo de cena novo, adicione-o ao `schema.ts` e ao `switch` do `index.tsx`, ou peça ao Claude.
+
+As fontes (Newsreader, Inter e JetBrains Mono, licença OFL) ficam em `public/fonts/`, então o render não depende de internet.
+
+## Composição `Apresentador3D` (30 fps, 10 s)
 
 Camadas, de trás para frente:
 

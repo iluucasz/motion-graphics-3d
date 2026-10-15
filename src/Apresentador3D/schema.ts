@@ -1,6 +1,8 @@
 import { z } from "zod";
+import { formatoSchema } from "../compartilhado/formato";
 
 export const apresentador3DSchema = z.object({
+  formato: formatoSchema,
   // Arquivo em public/ (ex.: "apresentador.mp4"). Vazio = fundo de placeholder.
   videoApresentador: z.string(),
   corDestaque: z.string(),

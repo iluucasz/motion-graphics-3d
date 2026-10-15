@@ -20,7 +20,10 @@ export const Apresentador3D: React.FC<Apresentador3DProps> = ({
         <Video src={staticFile(videoApresentador)} objectFit="cover" />
       ) : (
         <AbsoluteFill
-          style={{ background: "radial-gradient(circle at 50% 40%, #1d2b5a 0%, #0b1020 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle at 50% 40%, #1d2b5a 0%, #0b1020 70%)",
+          }}
         />
       )}
 
@@ -35,7 +38,11 @@ export const Apresentador3D: React.FC<Apresentador3DProps> = ({
             durationInFrames={duracao}
             premountFor={fps}
           >
-            <TextoCinetico texto={fala.texto} cor={corDestaque} duracao={duracao} />
+            <TextoCinetico
+              texto={fala.texto}
+              cor={corDestaque}
+              duracao={duracao}
+            />
           </Sequence>
         );
       })}

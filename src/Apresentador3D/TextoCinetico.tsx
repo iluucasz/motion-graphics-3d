@@ -1,10 +1,16 @@
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 
-export const TextoCinetico: React.FC<{ texto: string; cor: string; duracao: number }> = ({
-  texto,
-  cor,
-  duracao,
-}) => {
+export const TextoCinetico: React.FC<{
+  texto: string;
+  cor: string;
+  duracao: number;
+}> = ({ texto, cor, duracao }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const palavras = texto.split(" ");
@@ -14,7 +20,13 @@ export const TextoCinetico: React.FC<{ texto: string; cor: string; duracao: numb
   });
 
   return (
-    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 380 }}>
+    <AbsoluteFill
+      style={{
+        justifyContent: "flex-end",
+        alignItems: "center",
+        paddingBottom: 380,
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -33,7 +45,11 @@ export const TextoCinetico: React.FC<{ texto: string; cor: string; duracao: numb
         }}
       >
         {palavras.map((palavra, i) => {
-          const p = spring({ frame: frame - i * 4, fps, config: { damping: 12, mass: 0.6 } });
+          const p = spring({
+            frame: frame - i * 4,
+            fps,
+            config: { damping: 12, mass: 0.6 },
+          });
           return (
             <span
               key={i}
