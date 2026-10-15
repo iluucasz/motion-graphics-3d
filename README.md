@@ -53,7 +53,7 @@ Tudo é editado pelo painel da direita do Studio:
 | `comentarios` | Feed de comentários com a resposta do perfil e a chamada "Comenta PROMPT" | `perfil`, `comentarios`, `chamada`, `palavraChave` |
 | `logo` | Encerramento com símbolo e nome da marca | — |
 
-Código em `src/UIStory/`: uma cena por arquivo em `cenas/`, os estilos compartilhados (fontes, paleta, animação de entrada, digitação) em `estilo.ts`, a transição em `transicoes.tsx`, as partículas em `Particulas.tsx` e o roteiro de exemplo em `roteiroExemplo.ts`.
+Código em `src/UIStory/`: uma cena por arquivo em `cenas/`, os estilos compartilhados (fontes, paleta, animação de entrada, digitação) em `estilo.ts`, a transição em `transicoes.tsx`, as partículas em `Particulas.tsx` (o roteiro de exemplo fica em `src/Root.tsx`, escrito direto nos `defaultProps` para o Studio conseguir salvar o que você editar).
 
 O motion blur usa `<CameraMotionBlur>` (`@remotion/motion-blur`), que funciona em qualquer Chrome. O `<HtmlInCanvasMotionBlur>`, mais novo, exige Chrome 149+ com uma flag experimental. Para criar um tipo de cena novo, adicione-o ao `schema.ts` e ao `switch` do `index.tsx`, ou peça ao Claude.
 
