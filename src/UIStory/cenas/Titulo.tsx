@@ -1,4 +1,10 @@
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { entrada, fontes } from "../estilo";
 
 export const Titulo: React.FC<{
@@ -8,6 +14,12 @@ export const Titulo: React.FC<{
 }> = ({ texto, destaque, cor }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
+  const zoom = spring({
+    frame: frame - 12,
+    fps,
+    config: { damping: 200 },
+    durationInFrames: 26,
+  });
 
   return (
     <AbsoluteFill
@@ -31,7 +43,9 @@ export const Titulo: React.FC<{
               marginTop: 16,
               fontWeight: 500,
               color: cor,
+              textShadow: `0 0 50px color-mix(in srgb, ${cor} 45%, transparent)`,
               ...entrada(frame, fps, 12),
+              transform: `scale(${interpolate(zoom, [0, 1], [1.5, 1])})`,
             }}
           >
             {destaque}

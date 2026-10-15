@@ -1,5 +1,4 @@
 import { linearTiming, TransitionSeries } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
 import { Fragment } from "react";
 import type { CalculateMetadataFunction } from "remotion";
 import { useVideoConfig } from "remotion";
@@ -7,13 +6,18 @@ import { dimensoesDoFormato } from "../compartilhado/formato";
 import { Arquivo } from "./cenas/Arquivo";
 import { Chat } from "./cenas/Chat";
 import { Codigo } from "./cenas/Codigo";
+import { Comentarios } from "./cenas/Comentarios";
+import { Edicao } from "./cenas/Edicao";
+import { Impacto } from "./cenas/Impacto";
 import { Logo } from "./cenas/Logo";
 import { Metricas } from "./cenas/Metricas";
+import { Prompt } from "./cenas/Prompt";
 import { Selos } from "./cenas/Selos";
 import { Timeline } from "./cenas/Timeline";
 import { Titulo } from "./cenas/Titulo";
 import { Fundo } from "./Fundo";
 import type { Cena, UIStoryProps } from "./schema";
+import { apresentacao } from "./transicoes";
 
 export const FPS = 30;
 const FRAMES_TRANSICAO = 12;
@@ -87,6 +91,41 @@ const ConteudoDaCena: React.FC<{ cena: Cena; marca: string; cor: string }> = ({
           tema={cena.tema}
         />
       );
+    case "impacto":
+      return <Impacto texto={cena.texto} cor={cor} />;
+    case "prompt":
+      return (
+        <Prompt
+          titulo={cena.titulo}
+          teclas={cena.teclas}
+          texto={cena.texto}
+          cor={cor}
+          tema={cena.tema}
+        />
+      );
+    case "edicao":
+      return (
+        <Edicao
+          titulo={cena.titulo}
+          pedidos={cena.pedidos}
+          textoAntes={cena.textoAntes}
+          textoDepois={cena.textoDepois}
+          corDepois={cena.corDepois}
+          nomeArquivo={cena.nomeArquivo}
+          cor={cor}
+          tema={cena.tema}
+        />
+      );
+    case "comentarios":
+      return (
+        <Comentarios
+          perfil={cena.perfil}
+          comentarios={cena.comentarios}
+          chamada={cena.chamada}
+          palavraChave={cena.palavraChave}
+          cor={cor}
+        />
+      );
     case "logo":
       return <Logo marca={marca} cor={cor} />;
   }
@@ -95,6 +134,8 @@ const ConteudoDaCena: React.FC<{ cena: Cena; marca: string; cor: string }> = ({
 export const UIStory: React.FC<UIStoryProps> = ({
   marca,
   corDestaque,
+  transicao,
+  particulas,
   cenas,
 }) => {
   const { fps } = useVideoConfig();
@@ -105,7 +146,7 @@ export const UIStory: React.FC<UIStoryProps> = ({
         <Fragment key={i}>
           {i > 0 ? (
             <TransitionSeries.Transition
-              presentation={fade()}
+              presentation={apresentacao(transicao)}
               timing={linearTiming({ durationInFrames: FRAMES_TRANSICAO })}
             />
           ) : null}
@@ -114,7 +155,7 @@ export const UIStory: React.FC<UIStoryProps> = ({
             premountFor={fps}
             name={`${i + 1}. ${cena.tipo}`}
           >
-            <Fundo tema={cena.tema} cor={corDestaque}>
+            <Fundo tema={cena.tema} cor={corDestaque} particulas={particulas}>
               <ConteudoDaCena cena={cena} marca={marca} cor={corDestaque} />
             </Fundo>
           </TransitionSeries.Sequence>

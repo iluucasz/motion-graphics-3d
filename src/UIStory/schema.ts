@@ -59,6 +59,42 @@ export const cenaSchema = z.discriminatedUnion("tipo", [
     nomeArquivo: z.string(),
   }),
   z.object({
+    tipo: z.literal("impacto"),
+    tema,
+    duracaoEmSegundos: duracao,
+    texto: z.string(),
+  }),
+  z.object({
+    tipo: z.literal("prompt"),
+    tema,
+    duracaoEmSegundos: duracao,
+    titulo: z.string(),
+    teclas: z.array(z.string()),
+    texto: z.string(),
+  }),
+  z.object({
+    tipo: z.literal("edicao"),
+    tema,
+    duracaoEmSegundos: duracao,
+    titulo: z.string(),
+    pedidos: z.array(z.string()),
+    textoAntes: z.string(),
+    textoDepois: z.string(),
+    corDepois: zColor(),
+    nomeArquivo: z.string(),
+  }),
+  z.object({
+    tipo: z.literal("comentarios"),
+    tema,
+    duracaoEmSegundos: duracao,
+    perfil: z.string(),
+    comentarios: z.array(
+      z.object({ autor: z.string(), texto: z.string(), doAutor: z.boolean() }),
+    ),
+    chamada: z.string(),
+    palavraChave: z.string(),
+  }),
+  z.object({
     tipo: z.literal("logo"),
     tema,
     duracaoEmSegundos: duracao,
@@ -69,6 +105,9 @@ export const uiStorySchema = z.object({
   formato: formatoSchema,
   marca: z.string(),
   corDestaque: zColor(),
+  transicao: z.enum(["desfoque-zoom", "fade", "deslizar"]),
+  // Poeira luminosa e rastros de luz nas cenas de tema escuro.
+  particulas: z.boolean(),
   cenas: z.array(cenaSchema),
 });
 

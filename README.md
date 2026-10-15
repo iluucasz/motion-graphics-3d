@@ -6,7 +6,7 @@ Stack: Remotion 4 + `@remotion/three` (Three.js / React Three Fiber) + `@remotio
 
 São duas composições, e as duas têm o campo **`formato`**, que aceita `9:16` (Reels, 1080×1920, o padrão) ou `16:9` (1920×1080):
 
-- **`UIStory`**: estilo "interface animada", com chat digitando, títulos serifados, linha do tempo de editor, código, métricas de post e cartão de arquivo pronto.
+- **`UIStory`** (9:16) e **`UIStory-16x9`** (16:9): estilo "interface animada", com o mesmo roteiro de exemplo de ~53 s. Têm chat digitando, títulos serifados, linha do tempo, código, métricas de post, texto gigante com motion blur, "cole o prompt", edição ao vivo, comentários com chamada para ação e logo.
 - **`Apresentador3D`**: vídeo de uma pessoa com objetos 3D e textos por cima.
 
 ## Comandos
@@ -17,7 +17,7 @@ npm i
 npm run dev        # Remotion Studio: preview e edição dos props pela barra lateral
 npm run lint       # eslint + tsc
 npx remotion render UIStory out/reels.mp4
-npx remotion render UIStory out/horizontal.mp4 --props='{"formato":"16:9"}'
+npx remotion render UIStory-16x9 out/horizontal.mp4
 npx remotion render Apresentador3D out/apresentador.mp4
 npx remotion still Apresentador3D out/frame.png --frame=120   # conferir um frame
 ```
@@ -34,6 +34,8 @@ Tudo é editado pelo painel da direita do Studio:
 
 - `formato`: `9:16` ou `16:9`. O layout se adapta; na cena de métricas, por exemplo, o celular fica acima dos números no vertical e ao lado no horizontal.
 - `marca` e `corDestaque` (com seletor de cor): aparecem no chat, nos selos, no brilho do fundo e no encerramento.
+- `transicao`: `desfoque-zoom` (padrão; a cena que sai afasta e desfoca, a que entra vem de perto e assenta), `fade` ou `deslizar`.
+- `particulas`: liga ou desliga a poeira luminosa e os rastros de luz nas cenas de tema escuro.
 - `cenas`: lista de blocos que você pode **reordenar, duplicar ou remover**. Cada um tem `tipo`, `tema` (`escuro` ou `claro`) e `duracaoEmSegundos`. A duração total do vídeo é calculada sozinha.
 
 | `tipo` | O que mostra | Campos |
@@ -45,9 +47,15 @@ Tudo é editado pelo painel da direita do Studio:
 | `codigo` | Código sendo digitado com realce | `arquivo`, `linhas` |
 | `metricas` | Celular com post + contadores animados | `usuario`, `visualizacoes`, `curtidas`, `comentarios` |
 | `arquivo` | Cartão "video.mp4 · Arquivo pronto" | `titulo`, `textoNoVideo`, `nomeArquivo` |
+| `impacto` | Texto gigante vindo "da câmera", com zoom, brilho e motion blur | `texto` |
+| `prompt` | "Cole o prompt ⌘ V": teclas afundam e o texto é colado na caixa | `titulo`, `teclas`, `texto` |
+| `edicao` | Pedidos em balões e o vídeo se atualizando ao vivo (texto e cor mudam) | `titulo`, `pedidos`, `textoAntes`, `textoDepois`, `corDepois`, `nomeArquivo` |
+| `comentarios` | Feed de comentários com a resposta do perfil e a chamada "Comenta PROMPT" | `perfil`, `comentarios`, `chamada`, `palavraChave` |
 | `logo` | Encerramento com símbolo e nome da marca | — |
 
-Código em `src/UIStory/`: uma cena por arquivo em `cenas/` e os estilos compartilhados (fontes, paleta, animação de entrada, digitação) em `estilo.ts`. Para criar um tipo de cena novo, adicione-o ao `schema.ts` e ao `switch` do `index.tsx`, ou peça ao Claude.
+Código em `src/UIStory/`: uma cena por arquivo em `cenas/`, os estilos compartilhados (fontes, paleta, animação de entrada, digitação) em `estilo.ts`, a transição em `transicoes.tsx`, as partículas em `Particulas.tsx` e o roteiro de exemplo em `roteiroExemplo.ts`.
+
+O motion blur usa `<CameraMotionBlur>` (`@remotion/motion-blur`), que funciona em qualquer Chrome. O `<HtmlInCanvasMotionBlur>`, mais novo, exige Chrome 149+ com uma flag experimental. Para criar um tipo de cena novo, adicione-o ao `schema.ts` e ao `switch` do `index.tsx`, ou peça ao Claude.
 
 As fontes (Newsreader, Inter e JetBrains Mono, licença OFL) ficam em `public/fonts/`, então o render não depende de internet.
 

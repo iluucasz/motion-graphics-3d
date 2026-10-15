@@ -1,11 +1,13 @@
 import { AbsoluteFill } from "remotion";
 import { comAlpha, paleta, type Tema } from "./estilo";
+import { Particulas } from "./Particulas";
 
 export const Fundo: React.FC<{
   tema: Tema;
   cor: string;
+  particulas: boolean;
   children: React.ReactNode;
-}> = ({ tema, cor, children }) => {
+}> = ({ tema, cor, particulas, children }) => {
   const p = paleta(tema);
   return (
     <AbsoluteFill
@@ -18,6 +20,7 @@ export const Fundo: React.FC<{
           }}
         />
       ) : null}
+      {tema === "escuro" && particulas ? <Particulas cor={cor} /> : null}
       {children}
     </AbsoluteFill>
   );
