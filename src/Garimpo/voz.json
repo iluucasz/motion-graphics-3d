@@ -1,0 +1,383 @@
+{
+  "trechos": {
+    "VO-1": {
+      "arquivo": "bloco_a.mp3",
+      "in": 0.0,
+      "out": 3.874,
+      "primeiroSom": 0.0,
+      "legendas": [
+        [
+          0.0,
+          3.77,
+          "Sabe quando achar produto bom na Shopee… vira garimpo?"
+        ]
+      ]
+    },
+    "VO-2": {
+      "arquivo": "bloco_a.mp3",
+      "in": 4.912,
+      "out": 8.664,
+      "primeiroSom": 5.012,
+      "legendas": [
+        [
+          0.0,
+          3.55,
+          "É tanta opção, tanta estrelinha… e nenhuma certeza do que vale."
+        ]
+      ]
+    },
+    "VO-3a": {
+      "arquivo": "bloco_a.mp3",
+      "in": 9.342,
+      "out": 11.308,
+      "primeiroSom": 9.442,
+      "legendas": [
+        [
+          0.0,
+          1.77,
+          "Pra isso existe o Garimpou Certo."
+        ]
+      ]
+    },
+    "VO-3b": {
+      "arquivo": "bloco_a.mp3",
+      "in": 12.732,
+      "out": 15.387,
+      "primeiroSom": 12.832,
+      "legendas": [
+        [
+          0.0,
+          2.45,
+          "Bons produtos."
+        ]
+      ]
+    },
+    "VO-3c": {
+      "arquivo": "bloco_a.mp3",
+      "in": 15.631,
+      "out": 18.442,
+      "primeiroSom": 15.731,
+      "legendas": [
+        [
+          0.0,
+          2.71,
+          "Preços que valem."
+        ]
+      ]
+    },
+    "VO-4": {
+      "arquivo": "bloco_b.mp3",
+      "in": 0.0,
+      "out": 8.812,
+      "primeiroSom": 0.0,
+      "legendas": [
+        [
+          0.0,
+          3.73,
+          "Aqui são centenas de achados, em várias categorias."
+        ],
+        [
+          4.07,
+          7.44,
+          "E só entra o que tem nota alta… e venda comprovada."
+        ],
+        [
+          7.78,
+          8.71,
+          "Sem enrolação."
+        ]
+      ]
+    },
+    "VO-5": {
+      "arquivo": "bloco_b.mp3",
+      "in": 10.065,
+      "out": 16.996,
+      "primeiroSom": 10.165,
+      "legendas": [
+        [
+          0.0,
+          0.97,
+          "Quer o que tá em alta?"
+        ],
+        [
+          1.28,
+          3.91,
+          "O maior desconto? O melhor avaliado?"
+        ],
+        [
+          4.23,
+          6.74,
+          "Ou o que cabe no bolso? É só escolher."
+        ]
+      ]
+    },
+    "VO-6": {
+      "arquivo": "bloco_b.mp3",
+      "in": 18.105,
+      "out": 26.669,
+      "primeiroSom": 18.205,
+      "legendas": [
+        [
+          0.0,
+          3.06,
+          "Cada produto mostra o preço, o histórico dele…"
+        ],
+        [
+          3.34,
+          5.07,
+          "pra você ver se tá bom mesmo…"
+        ],
+        [
+          5.48,
+          8.36,
+          "e o Índice Garimpo: uma nota de zero a cem."
+        ]
+      ]
+    },
+    "VO-7": {
+      "arquivo": "bloco_b.mp3",
+      "in": 27.511,
+      "out": 33.306,
+      "primeiroSom": 27.611,
+      "legendas": [
+        [
+          0.0,
+          0.83,
+          "Ficou na dúvida?"
+        ],
+        [
+          1.19,
+          4.27,
+          "Coloca até quatro lado a lado… e vê o que muda."
+        ],
+        [
+          4.66,
+          5.7,
+          "Sem pressa."
+        ]
+      ]
+    },
+    "VO-8a": {
+      "arquivo": "bloco_c.mp3",
+      "in": 0.0,
+      "out": 5.58,
+      "primeiroSom": 0.0,
+      "legendas": [
+        [
+          0.0,
+          2.2,
+          "E por trás de tudo, tem a Engine."
+        ],
+        [
+          2.66,
+          5.48,
+          "Ela passa o pente-fino em milhares de ofertas."
+        ]
+      ]
+    },
+    "VO-8b": {
+      "arquivo": "bloco_c.mp3",
+      "in": 6.151,
+      "out": 14.064,
+      "primeiroSom": 6.251,
+      "legendas": [
+        [
+          0.0,
+          1.93,
+          "Corta quem não tem nota nem venda…"
+        ],
+        [
+          2.24,
+          4.88,
+          "não deixa uma loja só dominar a vitrine…"
+        ],
+        [
+          5.28,
+          7.71,
+          "e repete tudo, todo dia."
+        ]
+      ]
+    },
+    "VO-9": {
+      "arquivo": "bloco_c.mp3",
+      "in": 14.558,
+      "out": 20.48,
+      "primeiroSom": 14.658,
+      "legendas": [
+        [
+          0.0,
+          0.87,
+          "Sem cadastro."
+        ],
+        [
+          1.26,
+          2.97,
+          "Você compra direto na Shopee."
+        ],
+        [
+          3.37,
+          5.72,
+          "E o link de afiliado? A gente avisa."
+        ]
+      ]
+    },
+    "VO-10": {
+      "arquivo": "bloco_c.mp3",
+      "in": 21.057,
+      "out": 25.222,
+      "primeiroSom": 21.157,
+      "legendas": [
+        [
+          0.0,
+          3.97,
+          "E a Engine ainda prepara os posts do dia… com número de verdade."
+        ]
+      ]
+    },
+    "VO-11": {
+      "arquivo": "bloco_c.mp3",
+      "in": 25.651,
+      "out": 29.153,
+      "primeiroSom": 25.751,
+      "legendas": [
+        [
+          0.0,
+          1.32,
+          "Vem garimpar com a gente."
+        ],
+        [
+          1.76,
+          3.4,
+          "Garimpou… Certo."
+        ]
+      ]
+    },
+    "VO-9b": {
+      "arquivo": "bloco_c.mp3",
+      "in": 14.558,
+      "out": 17.7,
+      "primeiroSom": 14.658,
+      "legendas": [
+        [
+          0.0,
+          0.87,
+          "Sem cadastro."
+        ],
+        [
+          1.26,
+          2.97,
+          "Você compra direto na Shopee."
+        ]
+      ]
+    }
+  },
+  "linha80": [
+    [
+      "VO-1",
+      0.6
+    ],
+    [
+      "VO-2",
+      4.9
+    ],
+    [
+      "VO-3a",
+      9.7
+    ],
+    [
+      "VO-3b",
+      11.92
+    ],
+    [
+      "VO-3c",
+      14.7
+    ],
+    [
+      "VO-4",
+      18.0
+    ],
+    [
+      "VO-5",
+      27.1
+    ],
+    [
+      "VO-6",
+      34.3
+    ],
+    [
+      "VO-7",
+      43.2
+    ],
+    [
+      "VO-8a",
+      49.8
+    ],
+    [
+      "VO-8b",
+      55.7
+    ],
+    [
+      "VO-9",
+      64.0
+    ],
+    [
+      "VO-11",
+      70.3
+    ]
+  ],
+  "linha60": [
+    [
+      "VO-1",
+      0.3,
+      1.14
+    ],
+    [
+      "VO-2",
+      3.85,
+      1.14
+    ],
+    [
+      "VO-3a",
+      7.28,
+      1.14
+    ],
+    [
+      "VO-3b",
+      9.15,
+      1.14
+    ],
+    [
+      "VO-3c",
+      11.62,
+      1.14
+    ],
+    [
+      "VO-4",
+      14.3
+    ],
+    [
+      "VO-6",
+      23.4
+    ],
+    [
+      "VO-7",
+      32.2
+    ],
+    [
+      "VO-8a",
+      38.55
+    ],
+    [
+      "VO-8b",
+      44.45
+    ],
+    [
+      "VO-9b",
+      52.7
+    ],
+    [
+      "VO-11",
+      56.0
+    ]
+  ]
+}
